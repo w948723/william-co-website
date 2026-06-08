@@ -30,7 +30,8 @@ body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color
 /* ── HEADER ── */
 header { border-bottom: 1px solid var(--rule-md); padding: 28px 0; }
 .header-inner { display: flex; align-items: center; justify-content: space-between; }
-.wordmark { font-size: 11px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+.wordmark { display: inline-block; text-decoration: none; }
+.wordmark img { height: 28px; width: auto; display: block; }
 .header-tag { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--ink-faint); text-transform: uppercase; border: 1px solid var(--rule-md); padding: 4px 12px; }
 
 /* ── HERO ── */
@@ -95,7 +96,7 @@ footer { padding: 56px 0; }
 <header>
   <div class="wrap">
     <div class="header-inner">
-      <a href="#" class="wordmark">William & Co. LLC</a>
+      <a href="#" class="wordmark"><img src="logo.png" alt="William & Co. LLC"></a>
       <span class="header-tag">AI Product Lab</span>
     </div>
   </div>
