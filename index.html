@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>William & Co. LLC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:         #F4F1EA;
+  --bg-card:    #EDEAE2;
+  --bg-hover:   #E5E2D9;
+  --ink:        #141412;
+  --ink-mid:    #5A5851;
+  --ink-faint:  #9A9890;
+  --accent:     #1A1A18;
+  --red:        #A82810;
+  --rule:       rgba(20,20,18,0.09);
+  --rule-md:    rgba(20,20,18,0.16);
+}
+html { background: var(--bg); color: var(--ink); font-size: 16px; scroll-behavior: smooth; }
+body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; overflow-x: hidden; }
+@media (prefers-color-scheme: dark) { html, body { background: var(--bg) !important; color: var(--ink) !important; } }
+
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+
+/* ── HEADER ── */
+header { border-bottom: 1px solid var(--rule-md); padding: 28px 0; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; }
+.wordmark { font-size: 11px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+.header-tag { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--ink-faint); text-transform: uppercase; border: 1px solid var(--rule-md); padding: 4px 12px; }
+
+/* ── HERO ── */
+.hero { padding: 120px 0 100px; border-bottom: 1px solid var(--rule-md); }
+.hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 40px; display: flex; align-items: center; gap: 16px; }
+.hero-eyebrow::before { content: ''; display: inline-block; width: 32px; height: 1px; background: var(--ink-mid); }
+.hero-headline { font-size: clamp(64px, 8.5vw, 128px); font-weight: 900; line-height: 0.92; letter-spacing: -4px; color: var(--ink); margin-bottom: 0; text-transform: uppercase; }
+.hero-headline .muted { color: var(--ink-faint); }
+.hero-sub { margin-top: 56px; max-width: 520px; font-size: 17px; font-weight: 300; color: var(--ink-mid); line-height: 1.75; padding-left: 48px; border-left: 2px solid var(--ink); }
+
+/* ── ABOUT ── */
+.about { padding: 96px 0; display: grid; grid-template-columns: 240px 1fr; gap: 80px; border-bottom: 1px solid var(--rule-md); align-items: start; }
+.section-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-faint); padding-top: 4px; position: sticky; top: 40px; }
+.about-body p { font-size: 18px; font-weight: 300; color: var(--ink); line-height: 1.85; margin-bottom: 28px; }
+.about-body p:last-child { margin-bottom: 0; }
+.about-body strong { font-weight: 700; color: var(--ink); }
+
+/* ── PRODUCTS ── */
+.products { padding: 96px 0; border-bottom: 1px solid var(--rule-md); }
+.products-header { display: grid; grid-template-columns: 240px 1fr; gap: 80px; margin-bottom: 64px; }
+.products-intro { font-size: 16px; font-weight: 300; color: var(--ink-mid); line-height: 1.75; padding-top: 4px; }
+.product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule-md); margin-left: 320px; }
+.product-card { background: var(--bg-card); padding: 40px 36px; position: relative; transition: background 0.15s; }
+.product-card:hover { background: var(--bg-hover); }
+.product-num { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--ink-faint); margin-bottom: 20px; }
+.product-name { font-size: 28px; font-weight: 800; color: var(--ink); margin-bottom: 12px; letter-spacing: -0.5px; }
+.product-name .plus { color: var(--red); }
+.product-desc { font-size: 13px; font-weight: 300; color: var(--ink-mid); line-height: 1.7; }
+.product-status { margin-top: 24px; display: inline-block; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--rule-md); color: var(--ink-mid); }
+.product-status.live { border-color: var(--red); color: var(--red); }
+
+/* ── PRINCIPLES ── */
+.principles-section { padding: 96px 0; border-bottom: 1px solid var(--rule-md); }
+.principles-header { display: grid; grid-template-columns: 240px 1fr; gap: 80px; margin-bottom: 72px; }
+.pull { font-size: clamp(26px, 3.2vw, 40px); font-weight: 800; line-height: 1.18; letter-spacing: -1px; color: var(--ink); }
+.pull em { color: var(--ink-faint); font-style: normal; }
+.principles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule-md); margin-left: 320px; }
+.p-card { background: var(--bg-card); padding: 32px 28px; transition: background 0.15s; }
+.p-card:hover { background: var(--bg-hover); }
+.p-num { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--ink-faint); letter-spacing: 0.1em; margin-bottom: 16px; }
+.p-title { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 10px; letter-spacing: -0.2px; }
+.p-body { font-size: 12px; font-weight: 300; color: var(--ink-mid); line-height: 1.8; }
+
+/* ── FOOTER ── */
+footer { padding: 56px 0; }
+.footer-inner { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--rule-md); padding-top: 40px; gap: 24px; flex-wrap: wrap; }
+.footer-brand { font-size: 11px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ink-faint); }
+.footer-email { font-size: 22px; font-weight: 800; color: var(--ink); text-decoration: none; letter-spacing: -0.5px; transition: color 0.15s; }
+.footer-email:hover { color: var(--red); }
+.footer-copy { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--ink-faint); letter-spacing: 0.06em; margin-top: 8px; }
+
+@media (max-width: 720px) {
+  .wrap { padding: 0 24px; }
+  .about, .products-header, .principles-header { grid-template-columns: 1fr; gap: 32px; }
+  .product-grid, .principles-grid { margin-left: 0; grid-template-columns: 1fr; }
+  .hero-headline { font-size: 52px; letter-spacing: -2px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="header-inner">
+      <a href="#" class="wordmark">William & Co. LLC</a>
+      <span class="header-tag">AI Product Lab</span>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">AI-enabled product development</div>
+    <h1 class="hero-headline">
+      Asymmetric<br><span class="muted">by design.</span>
+    </h1>
+    <p class="hero-sub">We build software products powered by AI — tools that work without constant intervention, designed to compound value over time.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="about">
+    <div class="section-label">About</div>
+    <div class="about-body">
+      <p>William &amp; Co. LLC is an <strong>AI-enabled product development lab</strong> — building focused software tools that work without constant intervention.</p>
+      <p>We are a one-person operation by deliberate design. Not as a constraint — as a philosophy. Everything we build is built to run without constant intervention. That means it has to be genuinely useful, genuinely automated, and genuinely good. There is no team to carry a mediocre product. What ships has to be right.</p>
+    </div>
+  </div>
+</div>
+
+<section class="products">
+  <div class="wrap">
+    <div class="products-header">
+      <div class="section-label">Products</div>
+      <div class="products-intro">Each product is built because we needed it and nothing adequate existed — then refined until it's something others need too.</div>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-num">01</div>
+        <div class="product-name">1<span class="plus">++</span></div>
+        <div class="product-desc">You're 1. We're the ++. An AI agent orchestration platform that runs multiple departments in parallel — product, brand, marketing, support — so a one-person operation executes at team scale.</div>
+        <div class="product-status live">Active · Building</div>
+      </div>
+      <div class="product-card">
+        <div class="product-num">02</div>
+        <div class="product-name">Footage Agent</div>
+        <div class="product-desc">AI-powered b-roll research and FCPXML timeline injection for documentary editors. Find the right footage, brief it intelligently, and drop it directly into your edit — without leaving your workflow.</div>
+        <div class="product-status live">Active · Beta</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="principles-section">
+  <div class="wrap">
+    <div class="principles-header">
+      <div class="section-label">Principles</div>
+      <div class="pull">One person.<br><em>The whole operation.</em><br>That demands a different kind of system.</div>
+    </div>
+    <div class="principles-grid">
+      <div class="p-card">
+        <div class="p-num">01</div>
+        <div class="p-title">Build the unfair advantage</div>
+        <div class="p-body">The goal isn't to compete on equal terms — it's to find situations where thoughtful preparation gives you a structural edge. We build tools that do more than their apparent size suggests.</div>
+      </div>
+      <div class="p-card">
+        <div class="p-num">02</div>
+        <div class="p-title">Longevity over velocity</div>
+        <div class="p-body">A product that's still running and still useful in ten years is worth more than one that launches fast and fades. We build for durability. Speed is a byproduct of clarity, not the goal itself.</div>
+      </div>
+      <div class="p-card">
+        <div class="p-num">03</div>
+        <div class="p-title">Fewer things, fully done</div>
+        <div class="p-body">A short list of excellent products beats a long list of adequate ones. We don't take on what we can't finish properly. Scope is kept narrow deliberately — depth is where the value actually lives.</div>
+      </div>
+      <div class="p-card">
+        <div class="p-num">04</div>
+        <div class="p-title">The system does the work</div>
+        <div class="p-body">If something requires a human to watch it constantly, it isn't finished. Every product and every internal process is designed to run unsupervised. Automation isn't a feature — it's the whole point.</div>
+      </div>
+      <div class="p-card">
+        <div class="p-num">05</div>
+        <div class="p-title">Clarity is the standard</div>
+        <div class="p-body">We write copy that says what it means. We build interfaces that don't need explaining. We give honest assessments of what's working and what isn't. Ambiguity is expensive; clarity compounds.</div>
+      </div>
+      <div class="p-card">
+        <div class="p-num">06</div>
+        <div class="p-title">Ownership over dependency</div>
+        <div class="p-body">We don't build toward someone else's exit. No investors to satisfy, no acquisition to optimise for. The products belong to the lab; the lab belongs to no one else. That independence is the asset.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">William & Co. LLC</div>
+        <div class="footer-copy">© 2026 · All rights reserved</div>
+      </div>
+      <div style="text-align:right">
+        <a href="mailto:hello@williamandco.com" class="footer-email">hello@williamandco.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
